@@ -59,12 +59,13 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 20,
     fontSize: 30,
     textAlign: 'center',
   },
   container: {
-    height: 600,
+    height: 630,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
