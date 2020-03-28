@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const markers = [
@@ -28,30 +28,24 @@ export default class App extends Component {
     const { latitude, longitude, latitudeDelta, longitudeDelta } = this.state;
 
     return (
-      <View>
-        <Text style={styles.header}>
-          Recycle Maps
-        </Text>
-
-        <View style={styles.container}>
-          <MapView
-            provider={PROVIDER_GOOGLE}
-            mapType="hybrid"
-            region={{ latitude, longitude, latitudeDelta, longitudeDelta }}
-            style={styles.map}
-            showsUserLocation
-          >
-            {
-              markers.map(m => (
-                <MapView.Marker
-                  title={m.title}
-                  coordinate={m.coordinate}
-                  key={m.title}
-                />
-              ))
-            }
-          </MapView>
-        </View>
+      <View style={styles.container}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          mapType="hybrid"
+          region={{ latitude, longitude, latitudeDelta, longitudeDelta }}
+          style={styles.map}
+          showsUserLocation
+        >
+          {
+            markers.map(m => (
+              <MapView.Marker
+                title={m.title}
+                coordinate={m.coordinate}
+                key={m.title}
+              />
+            ))
+          }
+        </MapView>
       </View>
     );
   }
