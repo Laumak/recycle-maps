@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 
 const markers = [
   {
-    title: "Paikka 1",
+    title: "Lipputie",
     options: ["a", "b", "c"],
     coordinate: { latitude: 60.322344, longitude: 24.852691 },
   }, {
-    title: "Paikka 2",
+    title: "Kanniston koulu",
     options: ["d", "e", "f"],
     coordinate: { latitude: 60.328479, longitude: 24.860194 },
   },
@@ -25,8 +25,6 @@ export default class App extends Component {
   state = {
     latitude: 0,
     longitude: 0,
-    latitudeDelta: 0.02,
-    longitudeDelta: 0.02,
   }
 
   componentDidMount() {
@@ -40,14 +38,19 @@ export default class App extends Component {
 
   render() {
     const { navigation } = this.props;
-    const { latitude, longitude, latitudeDelta, longitudeDelta } = this.state;
+    const { latitude, longitude } = this.state;
 
     return (
       <View style={styles.container}>
         <MapView
           provider={PROVIDER_GOOGLE}
           mapType="hybrid"
-          region={{ latitude, longitude, latitudeDelta, longitudeDelta }}
+          region={{
+            latitude,
+            longitude,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
+          }}
           style={styles.map}
           showsUserLocation
         >
