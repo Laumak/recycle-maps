@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default class App extends Component {
   state = {
@@ -13,13 +14,18 @@ export default class App extends Component {
           Recycle Maps
         </Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Search"
-          onChangeText={text => this.setState({ search: text })}
-        />
-
-        <Text>{this.state.search}</Text>
+        <View style={styles.container}>
+          <MapView
+            provider={PROVIDER_GOOGLE}
+            region={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.015,
+              longitudeDelta: 0.0121,
+            }}
+            style={styles.map}
+          />
+        </View>
       </View>
     );
   }
@@ -40,5 +46,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#ddd',
     backgroundColor: '#F5F5F5',
+  },
+  container: {
+    height: 400,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
 });
