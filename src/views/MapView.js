@@ -5,12 +5,19 @@ import PropTypes from 'prop-types';
 
 const markers = [
   {
-    title: "Lipputie",
+    title: "Lipunkantajan kenttä",
     options: ["a", "b", "c"],
     coordinate: { latitude: 60.322344, longitude: 24.852691 },
   }, {
     title: "Kanniston koulu",
-    options: ["d", "e", "f"],
+    options: [
+      "Keräyskartonki",
+      "Paperi",
+      "Muovikassit",
+      "Lasipakkaukset",
+      "Pienmetalli",
+      "Kartonkipakkaukset",
+    ],
     coordinate: { latitude: 60.328479, longitude: 24.860194 },
   },
 ];
