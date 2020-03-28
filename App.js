@@ -12,7 +12,11 @@ const App = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Map">
       <Stack.Screen name="Map" component={MapView} />
-      <Stack.Screen name="Location" component={LocationView} />
+      <Stack.Screen
+        name="Location"
+        component={LocationView}
+        options={({ route }) => ({ title: route.params.title })}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );

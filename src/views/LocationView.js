@@ -3,11 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 const LocationView = (props) => {
-  const { route: { params: { title, options } } } = props;
+  const { route: { params: { options } } } = props;
 
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
       <Text>{options.map(o => o)}</Text>
     </View>
   );
