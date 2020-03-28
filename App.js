@@ -6,8 +6,8 @@ export default class App extends Component {
   state = {
     latitude: 0,
     longitude: 0,
-    latitudeDelta: 0,
-    longitudeDelta: 0,
+    latitudeDelta: 0.02,
+    longitudeDelta: 0.02,
   }
 
   componentDidMount() {
