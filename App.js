@@ -31,6 +31,7 @@ export default class App extends Component {
         <View style={styles.container}>
           <MapView
             provider={PROVIDER_GOOGLE}
+            mapType="hybrid"
             region={{ latitude, longitude, latitudeDelta, longitudeDelta }}
             style={styles.map}
             showsUserLocation
