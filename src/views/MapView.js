@@ -58,15 +58,8 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: 40,
-    paddingBottom: 20,
-    fontSize: 30,
-    textAlign: 'center',
-  },
   container: {
-    height: 630,
-    width: '100%',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
