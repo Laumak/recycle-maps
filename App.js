@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
+const markers = [
+  { title: "Paikka 1", coordinate: { latitude: 60.322344, longitude: 24.852691 } },
+  { title: "Paikka 2", coordinate: { latitude: 60.328479, longitude: 24.860194 } },
+];
+
 export default class App extends Component {
   state = {
     latitude: 0,
@@ -35,7 +40,17 @@ export default class App extends Component {
             region={{ latitude, longitude, latitudeDelta, longitudeDelta }}
             style={styles.map}
             showsUserLocation
-          />
+          >
+            {
+              markers.map(m => (
+                <MapView.Marker
+                  title={m.title}
+                  coordinate={m.coordinate}
+                  key={m.title}
+                />
+              ))
+            }
+          </MapView>
         </View>
       </View>
     );
