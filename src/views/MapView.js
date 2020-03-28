@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import PropTypes from 'prop-types';
 
 const markers = [
-  { title: "Paikka 1", coordinate: { latitude: 60.322344, longitude: 24.852691 } },
-  { title: "Paikka 2", coordinate: { latitude: 60.328479, longitude: 24.860194 } },
+  { title: "Paikka 1", options: ['a', 'b', 'c'], coordinate: { latitude: 60.322344, longitude: 24.852691 } },
+  { title: "Paikka 2", options: ['d', 'e', 'f'], coordinate: { latitude: 60.328479, longitude: 24.860194 } },
 ];
 
 export default class App extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  }
+
   state = {
     latitude: 0,
     longitude: 0,
@@ -25,6 +32,7 @@ export default class App extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
     const { latitude, longitude, latitudeDelta, longitudeDelta } = this.state;
 
     return (
@@ -41,6 +49,7 @@ export default class App extends Component {
               <MapView.Marker
                 title={m.title}
                 coordinate={m.coordinate}
+                onPress={() => navigation.navigate('Location', { ...m })}
                 key={m.title}
               />
             ))

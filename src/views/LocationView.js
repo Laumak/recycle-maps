@@ -1,10 +1,37 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-const LocationView = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Location view</Text>
-  </View>
-);
+const LocationView = (props) => {
+  const { route: { params: { title, options } } } = props;
+
+  return (
+    <View style={styles.container}>
+      <Text>{title}</Text>
+      <Text>{options.map(o => o)}</Text>
+    </View>
+  );
+};
+
+LocationView.propTypes = {
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      options: PropTypes.array,
+    }).isRequired,
+  }).isRequired,
+};
+
+LocationView.defaultProps = {
+  options: [],
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default LocationView;
