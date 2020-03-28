@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Image } from 'react-native';
 import { Text, ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types';
 
@@ -8,12 +8,16 @@ const renderItem = ({ item }) => (
 )
 
 const LocationView = (props) => {
-  const { route: { params: { options } } } = props;
+  const { route: { params: { image, options } } } = props;
 
   return (
-    <View style={styles.container}>
-      <Text h4 style={styles.heading}>Keräyspisteet</Text>
-      <FlatList data={options} renderItem={renderItem} />
+    <View style={styles.outerContainer}>
+      <Image source={image} style={styles.image} />
+
+      <View style={styles.innerContainer}>
+        <Text h4 style={styles.heading}>Keräyspisteet</Text>
+        <FlatList data={options} renderItem={renderItem} />
+      </View>
     </View>
   );
 };
@@ -28,13 +32,21 @@ LocationView.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  innerContainer: {
     flex: 1,
     justifyContent: 'center',
     padding: 20,
   },
   heading: {
     marginBottom: 20
+  },
+  image: {
+    width: 'auto',
+    height: '30%',
   }
 });
 

@@ -3,13 +3,22 @@ import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import PropTypes from 'prop-types';
 
+import KenttaImage from '../images/kentta.jpg';
+import KouluImage from '../images/koulu.jpg';
+
 const markers = [
   {
     title: "Lipunkantajan kenttä",
-    options: ["a", "b", "c"],
+    image: KenttaImage,
+    options: [
+      "Pienmetalli",
+      "Lasipakkaukset",
+      "Muovipakkaukset",
+    ],
     coordinate: { latitude: 60.322344, longitude: 24.852691 },
   }, {
     title: "Kanniston koulu",
+    image: KouluImage,
     options: [
       "Keräyskartonki",
       "Paperi",
