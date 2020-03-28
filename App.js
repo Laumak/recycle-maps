@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   container: {
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
+    height: 600,
+    width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
